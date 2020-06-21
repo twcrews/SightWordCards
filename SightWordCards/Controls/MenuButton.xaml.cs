@@ -24,5 +24,17 @@ namespace SightWordCards.Controls
         {
             InitializeComponent();
         }
+
+        public string ButtonContent
+        {
+            get
+            {
+                return TextContent.Content.ToString();
+            }
+            set
+            {
+                TextContent.Content = value;
+            }
+        }
     }
 }

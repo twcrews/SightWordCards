@@ -6,10 +6,52 @@
              xmlns:local="clr-namespace:SightWordCards.Controls"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
+    <UserControl.Triggers>
+
+        <EventTrigger RoutedEvent="UserControl.MouseEnter">
+            <BeginStoryboard>
+                <Storyboard>
+                    <DoubleAnimation Storyboard.TargetName="BgBorder"
+                                             Storyboard.TargetProperty="Opacity"
+                                             To="0.6" Duration="0:0:0.1"/>
+                </Storyboard>
+            </BeginStoryboard>
+        </EventTrigger>
+        <EventTrigger RoutedEvent="UserControl.MouseLeave">
+            <BeginStoryboard>
+                <Storyboard>
+                    <DoubleAnimation Storyboard.TargetName="BgBorder"
+                                             Storyboard.TargetProperty="Opacity"
+                                             To="0" Duration="0:0:0.1"/>
+                </Storyboard>
+            </BeginStoryboard>
+        </EventTrigger>
+        <EventTrigger RoutedEvent="UserControl.MouseDown">
+            <BeginStoryboard>
+                <Storyboard>
+                    <DoubleAnimation Storyboard.TargetName="BgBorder"
+                                             Storyboard.TargetProperty="Opacity"
+                                             To="1" Duration="0" />
+                </Storyboard>
+            </BeginStoryboard>
+        </EventTrigger>
+        <EventTrigger RoutedEvent="UserControl.MouseUp">
+            <BeginStoryboard>
+                <Storyboard>
+                    <DoubleAnimation Storyboard.TargetName="BgBorder"
+                                             Storyboard.TargetProperty="Opacity"
+                                             To="0.6" Duration="0"/>
+                </Storyboard>
+            </BeginStoryboard>
+        </EventTrigger>
+    </UserControl.Triggers>
+    
     <Grid>
-        <Border x:Name="BgBorder" CornerRadius="20" BorderBrush="#44000000" BorderThickness="1" Background="#55000000"/>
+        <Border x:Name="BgBorder" x:FieldModifier="private" CornerRadius="5" 
+                BorderBrush="#40FFFFFF" Opacity="0" BorderThickness="2" Background="#40000000">
+        </Border>
         <Viewbox>
-            <Label x:Name="Content" Foreground="White" FontWeight="Bold"/>
+            <Label x:Name="TextContent" x:FieldModifier="private" Foreground="White" FontWeight="Bold"/>
         </Viewbox>
     </Grid>
 </UserControl>

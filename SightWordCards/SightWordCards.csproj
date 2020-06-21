@@ -61,11 +61,27 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
+    <Page Include="Controls\CheckLabel.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\EditableList.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Controls\MenuButton.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="MainWindow.xaml">
+    <Page Include="Windows\DeckWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\EditItemWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
@@ -78,13 +94,25 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Constants.cs" />
+    <Compile Include="Controls\CheckLabel.xaml.cs">
+      <DependentUpon>CheckLabel.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\EditableList.xaml.cs">
+      <DependentUpon>EditableList.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Controls\MenuButton.xaml.cs">
       <DependentUpon>MenuButton.xaml</DependentUpon>
     </Compile>
     <Compile Include="Deck.cs" />
     <Compile Include="Functions.cs" />
     <Compile Include="IniFile.cs" />
-    <Compile Include="MainWindow.xaml.cs">
+    <Compile Include="Windows\DeckWindow.xaml.cs">
+      <DependentUpon>DeckWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\EditItemWindow.xaml.cs">
+      <DependentUpon>EditItemWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
@@ -111,7 +139,9 @@
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
-    <None Include="swc_master.ini" />
+    <None Include="swc_master.ini">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

@@ -21,7 +21,7 @@
         </Border>
 
         <Viewbox>
-            <Label x:Name="WordBox"/>
+            <Label x:Name="WordBox" x:FieldModifier="private"/>
         </Viewbox>
 
     </Grid>

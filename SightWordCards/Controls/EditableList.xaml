@@ -1,0 +1,20 @@
+﻿<UserControl x:Class="SightWordCards.Controls.EditableList"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:SightWordCards.Controls"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="300">
+    <DockPanel>
+        <Grid DockPanel.Dock="Bottom" Background="{DynamicResource {x:Static SystemColors.InactiveCaptionBrushKey}}">
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
+                <Button x:Name="SelectAllButton" x:FieldModifier="private" Content="Select All" Margin="2" Padding="5, 0" Click="SelectAllButton_Click" IsEnabled="False"/>
+                <Button x:Name="RemoveButton" x:FieldModifier="private" Content="Remove" Margin="2" Padding="5, 0" Click="RemoveButton_Click" IsEnabled="False"/>
+                <Button x:Name="EditButton" x:FieldModifier="private" Content="Edit" Margin="2" Padding="5, 0" Click="EditButton_Click" IsEnabled="False"/>
+                <Button x:Name="AddButton" x:FieldModifier="private" Content="Add" Margin="2" Padding="5, 0" Click="AddButton_Click"/>
+            </StackPanel>
+        </Grid>
+        <ListBox x:Name="ContentList" BorderBrush="White" HorizontalContentAlignment="Stretch" SelectionChanged="ContentList_SelectionChanged"/>
+    </DockPanel>
+</UserControl>

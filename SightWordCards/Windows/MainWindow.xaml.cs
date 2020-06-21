@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SightWordCards.Windows;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -20,9 +21,25 @@ namespace SightWordCards
     /// </summary>
     public partial class MainWindow : Window
     {
-        public MainWindow()
+        private IniFile Decks { get; set; }
+
+        public MainWindow(IniFile decks)
         {
             InitializeComponent();
+            Decks = decks;
+        }
+
+        private void OpenEditWindow(object sender, MouseButtonEventArgs e)
+        {
+            DeckWindow deckWindow = new DeckWindow(Decks);
+            deckWindow.ShowDialog();
+            deckWindow.Close();
+            Decks.Load(App.DataFile);
+        }
+
+        private void RefreshCounter()
+        {
+
         }
     }
 }

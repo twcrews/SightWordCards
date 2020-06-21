@@ -43,6 +43,13 @@ public class IniFile
         m_sections = new Hashtable(StringComparer.InvariantCultureIgnoreCase);
     }
 
+    // Custom added function for quicker instantiation.
+    public IniFile(string sFileName)
+    {
+        m_sections = new Hashtable(StringComparer.InvariantCultureIgnoreCase);
+        Load(sFileName);
+    }
+
     // Loads the Reads the data in the ini file into the IniFile object
     public void Load(string sFileName )
     {
