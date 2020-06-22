@@ -36,5 +36,15 @@ namespace SightWordCards.Controls
                 TextContent.Content = value;
             }
         }
+
+        public bool BlackText
+        {
+            set
+            {
+                TextContent.Foreground = value ? 
+                    new SolidColorBrush(Colors.Black) : 
+                    new SolidColorBrush(Colors.White);
+            }
+        }
     }
 }

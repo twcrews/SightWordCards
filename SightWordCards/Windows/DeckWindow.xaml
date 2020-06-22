@@ -19,13 +19,13 @@
                 <ColumnDefinition Width="Auto"/>
                 <ColumnDefinition MinWidth="160"/>
             </Grid.ColumnDefinitions>
-            <controls:EditableList x:Name="DecksList" x:FieldModifier="private" ItemSelected="OnItemSelected"/>
+            <controls:EditableList x:Name="DecksList" x:FieldModifier="private" ItemSelected="OnItemSelected" ItemAdded="OnItemAdded" ItemRemoved="OnItemRemoved" ItemChanged="OnItemChanged"/>
             <GridSplitter Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Stretch" Background="#FFBDBDBD" Width="4"/>
             <DockPanel Grid.Column="2">
                 <Grid DockPanel.Dock="Bottom" Background="{DynamicResource {x:Static SystemColors.InactiveCaptionBrushKey}}">
                     <TextBlock Text="Put each word/phrase on a separate line." TextAlignment="Center" Margin="3" Foreground="#A0000000" TextTrimming="WordEllipsis"/>
                 </Grid>
-                <TextBox x:Name="CardsTextBox" x:FieldModifier="private" TextChanged="UpdateCards"/>
+                <TextBox x:Name="CardsTextBox" x:FieldModifier="private" TextChanged="UpdateCards" AcceptsReturn="True"/>
             </DockPanel>
         </Grid>
     </DockPanel>

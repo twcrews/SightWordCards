@@ -59,6 +59,21 @@ namespace SightWordCards.Windows
             }
         }
 
+        private void OnItemAdded(object sender, CheckLabelEventArgs e)
+        {
+            Decks.AddSection(e.Tag);
+        }
+
+        private void OnItemRemoved(object sender, CheckLabelEventArgs e)
+        {
+            Decks.RemoveSection(e.Tag);
+        }
+
+        private void OnItemChanged(object sender, CheckLabelEventArgs e)
+        {
+            Decks.GetSection(e.OldTag).SetName(e.Tag);
+        }
+
         private void UpdateCards(object sender, TextChangedEventArgs e)
         {
             List<string> CardsList = CardsTextBox.Text.Split(
@@ -68,7 +83,6 @@ namespace SightWordCards.Windows
             string selectedItem = (DecksList.ContentList.SelectedItem as CheckLabel).Tag.ToString();
             if (Decks.GetSection(selectedItem) == null)
             {
-                Decks.AddSection(selectedItem);
             }
             Decks.GetSection(selectedItem)
                 .RemoveAllKeys();
@@ -87,20 +101,13 @@ namespace SightWordCards.Windows
         private void SaveButton_Click(object sender, RoutedEventArgs e)
         {
             List<string> enabledDecks = new List<string>();
-            List<string> LoadedDecks = new List<string>();
             foreach (CheckLabel item in DecksList.ContentList.Items)
             {
-                LoadedDecks.Add(item.Tag.ToString());
                 if (item.IsChecked)
                 {
                     enabledDecks.Add(item.Tag.ToString());
                 }
-                if (Decks.GetSection(item.Tag.ToString()) == null)
-                {
-                    Decks.AddSection(item.Tag.ToString());
-                }
             }
-            // TODO: Remove inifile decks that were removed from EditableList.
             Settings.Default.EnabledDecks = new System.Collections.Specialized.StringCollection();
             Settings.Default.EnabledDecks.AddRange(enabledDecks.ToArray());
             Settings.Default.Save();

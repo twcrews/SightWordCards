@@ -5,7 +5,8 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:SightWordCards" xmlns:controls="clr-namespace:SightWordCards.Controls"
         mc:Ignorable="d"
-        Title="Sight Word Decks" Height="700" Width="600" Background="#FFD44141" ResizeMode="CanMinimize" WindowStartupLocation="CenterScreen">
+        Title="Sight Word Decks" Height="700" Width="600" Background="#FFD44141" 
+        ResizeMode="CanMinimize" WindowStartupLocation="CenterScreen">
     <Window.Triggers>
         <EventTrigger RoutedEvent="Window.Loaded">
             <BeginStoryboard>
@@ -14,12 +15,12 @@
                                      Storyboard.TargetProperty="(Window.Background).(SolidColorBrush.Color)" 
                                                   RepeatBehavior="Forever">
                         <ColorAnimationUsingKeyFrames.KeyFrames>
-                            <LinearColorKeyFrame Value="#FFD4CD41" KeyTime="0:0:5" />
-                            <LinearColorKeyFrame Value="#FF41D441" KeyTime="0:0:10" />
-                            <LinearColorKeyFrame Value="#FF41CDD4" KeyTime="0:0:15" />
-                            <LinearColorKeyFrame Value="#FF4141D4" KeyTime="0:0:20" />
-                            <LinearColorKeyFrame Value="#FFC741D4" KeyTime="0:0:25" />
-                            <LinearColorKeyFrame Value="#FFD44141" KeyTime="0:0:30" />
+                            <LinearColorKeyFrame Value="#FFD4CD41" KeyTime="0:1:00" />
+                            <LinearColorKeyFrame Value="#FF41D441" KeyTime="0:2:00" />
+                            <LinearColorKeyFrame Value="#FF41CDD4" KeyTime="0:3:00" />
+                            <LinearColorKeyFrame Value="#FF4141D4" KeyTime="0:4:00" />
+                            <LinearColorKeyFrame Value="#FFC741D4" KeyTime="0:5:00" />
+                            <LinearColorKeyFrame Value="#FFD44141" KeyTime="0:6:00" />
                         </ColorAnimationUsingKeyFrames.KeyFrames>
                     </ColorAnimationUsingKeyFrames>
                 </Storyboard>
@@ -35,14 +36,19 @@
             </LinearGradientBrush>
         </Grid.Background>
 
-        <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
+        <StackPanel VerticalAlignment="Center" Margin="40,0,40,120">
             <Label x:Name="DeckCounter" x:FieldModifier="private" 
-                   Content="3 decks loaded" HorizontalContentAlignment="Center" 
+                   HorizontalContentAlignment="Center" 
                    VerticalContentAlignment="Center" Foreground="White" FontSize="36" FontWeight="Bold"/>
+            <TextBlock x:Name="DeckPreviewTextBlock" x:FieldModifier="private" Foreground="White" 
+                       FontWeight="Bold" TextWrapping="WrapWithOverflow" TextTrimming="WordEllipsis" TextAlignment="Center" FontSize="14" Margin="0,0,0,20"/>
             <controls:MenuButton Width="70" Height="40" ButtonContent="Edit..." MouseUp="OpenEditWindow">
                 
             </controls:MenuButton>
         </StackPanel>
-        <controls:MenuButton ButtonContent="Start" Height="60" VerticalAlignment="Bottom" Width="200" Margin="0,0,0,20"/>
+        <StackPanel VerticalAlignment="Bottom" Width="200" Margin="0,0,0,20" >
+            <controls:BigCheckLabel x:Name="ShuffleAllBox" x:FieldModifier="private" Text="shuffle decks together" Margin="0, 0, 0, 10"/>
+            <controls:MenuButton x:Name="StartButton" x:FieldModifier="private" ButtonContent="Start" Height="60" MouseUp="MenuButton_MouseUp"/>
+        </StackPanel>
     </Grid>
 </Window>

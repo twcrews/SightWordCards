@@ -6,9 +6,6 @@
              xmlns:local="clr-namespace:SightWordCards"
              mc:Ignorable="d" 
              Height="450" Width="800">
-    <UserControl.Effect>
-        <DropShadowEffect Direction="270" BlurRadius="40" Opacity="0.4" ShadowDepth="10"/>
-    </UserControl.Effect>
     <Grid>
         <Border x:Name="BgBorder" CornerRadius="30" BorderBrush="#44000000" BorderThickness="2" Background="White"/>
         <Border CornerRadius="30">
