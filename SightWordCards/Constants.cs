@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace SightWordCards
+namespace Crews.Education.Presentation.SightWordCards
 {
     public class Constants
     {

@@ -13,7 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace SightWordCards.Controls
+namespace Crews.Education.Presentation.SightWordCards.Controls
 {
     /// <summary>
     /// Interaction logic for CheckLabel.xaml

@@ -3,7 +3,7 @@ using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Media.Animation;
 
-namespace SightWordCards
+namespace Crews.Education.Presentation.SightWordCards
 {
     static class Functions
     {

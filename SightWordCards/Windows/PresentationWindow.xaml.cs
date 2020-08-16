@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -12,7 +13,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 
-namespace SightWordCards.Windows
+namespace Crews.Education.Presentation.SightWordCards.Windows
 {
     /// <summary>
     /// Interaction logic for PresentationWindow.xaml
@@ -23,7 +24,15 @@ namespace SightWordCards.Windows
 
         private List<Deck> Decks { get; set; }
 
-        public PresentationWindow(IniFile decksfile, bool shuffleAll)
+        private Deck FinalDeck { get; set; }
+
+        private Card CurrentCard { get; set; }
+
+        private Card NextCard { get; set; }
+
+        private bool LastCard { get; set; }
+
+        public PresentationWindow(IniFile decksfile)
         {
             InitializeComponent();
             DataFile = decksfile;
@@ -47,12 +56,35 @@ namespace SightWordCards.Windows
                 }
             }
 
-            PresentCards(shuffleAll);
+            if (Decks.Count > 1)
+            {
+                List<Card> TempList = new List<Card>();
+                foreach (Deck deck in Decks)
+                {
+                    TempList.AddRange(deck.Cards);
+                }
+                Deck newDeck = new Deck(TempList);
+                newDeck.Shuffle();
+                FinalDeck = newDeck;
+            }
+            else
+            {
+                FinalDeck = Decks.First();
+                FinalDeck.Shuffle();
+            }
+
+            CurrentCard = FinalDeck.Draw();
+            NextCard = FinalDeck.Draw();
+
+            PresentCards();
         }
 
-        private void PresentCards(bool shuffleAll)
+        private void PresentCards()
         {
-
+            FrontCard.BackgroundColor = CurrentCard.BackgroundColor;
+            FrontCard.Text = CurrentCard.Text;
+            BackCard.BackgroundColor = NextCard.BackgroundColor;
+            BackCard.Text = NextCard.Text;
         }
 
         private void MenuButton_MouseUp(object sender, MouseButtonEventArgs e)
@@ -60,9 +92,26 @@ namespace SightWordCards.Windows
             Close();
         }
 
-        private void Viewbox_MouseDown(object sender, MouseButtonEventArgs e)
+        private void DoubleAnimation_Completed(object sender, EventArgs e)
         {
+            CurrentCard = NextCard;
+            if (FinalDeck.Cards.Count != 0)
+            {
+                NextCard = FinalDeck.Draw();
+            }
+            else
+            {
+                LastCard = true;
+            }
+            PresentCards();
+        }
 
+        private void Grid_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            if (LastCard)
+            {
+                Close();
+            }
         }
     }
 }

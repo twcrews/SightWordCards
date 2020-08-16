@@ -1,4 +1,4 @@
-﻿using SightWordCards.Windows;
+﻿using Crews.Education.Presentation.SightWordCards.Windows;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -14,7 +14,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace SightWordCards
+namespace Crews.Education.Presentation.SightWordCards
 {
     /// <summary>
     /// Interaction logic for MainWindow.xaml
@@ -68,7 +68,7 @@ namespace SightWordCards
         private void MenuButton_MouseUp(object sender, MouseButtonEventArgs e)
         {
             Hide();
-            PresentationWindow presentation = new PresentationWindow(Decks, ShuffleAllBox.IsChecked);
+            PresentationWindow presentation = new PresentationWindow(Decks);
             presentation.ShowDialog();
             Show();
         }

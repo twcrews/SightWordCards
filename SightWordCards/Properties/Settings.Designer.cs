@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace SightWordCards.Properties {
+namespace Crews.Education.Presentation.SightWordCards.Properties {
     
     
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]

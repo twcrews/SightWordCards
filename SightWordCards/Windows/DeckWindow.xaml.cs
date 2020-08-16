@@ -12,10 +12,10 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
-using SightWordCards.Controls;
-using SightWordCards.Properties;
+using Crews.Education.Presentation.SightWordCards.Controls;
+using Crews.Education.Presentation.SightWordCards.Properties;
 
-namespace SightWordCards.Windows
+namespace Crews.Education.Presentation.SightWordCards.Windows
 {
     /// <summary>
     /// Interaction logic for DeckWindow.xaml
@@ -56,6 +56,11 @@ namespace SightWordCards.Windows
                     }
                     CardsTextBox.Text = cardsString.Trim();
                 }
+                CardsTextBox.IsEnabled = true;
+            }
+            else
+            {
+                CardsTextBox.IsEnabled = false;
             }
         }
 
@@ -66,6 +71,7 @@ namespace SightWordCards.Windows
 
         private void OnItemRemoved(object sender, CheckLabelEventArgs e)
         {
+            CardsTextBox.Text = string.Empty;
             Decks.RemoveSection(e.Tag);
         }
 
@@ -113,6 +119,15 @@ namespace SightWordCards.Windows
             Settings.Default.Save();
             Decks.Save(App.DataFile);
             Hide();
+        }
+
+        private void Grid_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            if (!CardsTextBox.IsEnabled)
+            {
+                MessageBox.Show("You must select a deck first.",
+                    "Error", MessageBoxButton.OK, MessageBoxImage.Warning);
+            }
         }
     }
 }

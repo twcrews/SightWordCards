@@ -1,7 +1,7 @@
 ﻿using System.Windows.Controls;
 using System.Windows.Media;
 
-namespace SightWordCards
+namespace Crews.Education.Presentation.SightWordCards
 {
     /// <summary>
     /// Card UserControl partial class.
@@ -25,6 +25,13 @@ namespace SightWordCards
 
             set
             {
+                SolidColorBrush TextBrush = new SolidColorBrush
+                {
+                    Color = value.Color.R + value.Color.G + value.Color.B < 384 ?
+                    Colors.White : Colors.Black
+                };
+                WordBox.Foreground = TextBrush;
+
                 BgBorder.Background = value;
             }
         }

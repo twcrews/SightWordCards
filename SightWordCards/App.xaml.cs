@@ -6,9 +6,9 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Collections.Specialized;
-using SightWordCards.Properties;
+using Crews.Education.Presentation.SightWordCards.Properties;
 
-namespace SightWordCards
+namespace Crews.Education.Presentation.SightWordCards
 {
     /// <summary>
     /// Interaction logic for App.xaml

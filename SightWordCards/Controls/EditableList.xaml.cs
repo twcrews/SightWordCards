@@ -12,12 +12,12 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-using SightWordCards.Windows;
-using SightWordCards.Controls;
+using Crews.Education.Presentation.SightWordCards.Windows;
+using Crews.Education.Presentation.SightWordCards.Controls;
 using System.Drawing;
 using System.Text.RegularExpressions;
 
-namespace SightWordCards.Controls
+namespace Crews.Education.Presentation.SightWordCards.Controls
 {
     /// <summary>
     /// Interaction logic for EditableList.xaml

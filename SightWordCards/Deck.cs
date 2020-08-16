@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Windows.Media;
 
-namespace SightWordCards
+namespace Crews.Education.Presentation.SightWordCards
 {
     public class Deck
     {
